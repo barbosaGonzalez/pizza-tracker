@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Order Tracker</div>
 
-                <div class="panel-body">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Order Tracker</div>
+
+                <div class="card-body">
                     @if (session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
                     @endif
 
-                    <order-progress status="{{ $order->status->name}}" initial=" {{ $order->status->percent }}" order_id="{{ $order->id }}"></order-progress>
+                    {{--  <order-progress status="{{ $order->status->name}}" initial=" {{ $order->status->percent }}" order_id="{{ $order->id }}"></order-progress>
 
-                    <order-alert user_id="{{ auth()->user()->id }}"></order-alert>
-
-
+                    <order-alert user_id="{{ auth()->user()->id }}"></order-alert>  --}}
 
                     <hr>
 
@@ -34,10 +34,10 @@
                     </div>
 
                     <a class="btn btn-primary" href="{{ route('user.orders') }}">Back to Orders</a>
-
-                </div> <!-- end panel-body -->
-            </div> <!-- end panel -->
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 @endsection
