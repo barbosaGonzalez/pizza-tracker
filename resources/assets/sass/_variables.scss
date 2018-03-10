@@ -3,6 +3,11 @@
 $body-bg: #f5f8fa;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font-family-sans-serif: system-ui, "Raleway", sans-serif;
+
+// Border
+$border-radius: 1px !default;
+$border-radius-lg:  1px !default;
+$border-radius-sm: 1px !default;
+
+$input-btn-focus-width: 0 !default;
