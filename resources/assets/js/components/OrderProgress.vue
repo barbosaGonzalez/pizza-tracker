@@ -25,7 +25,7 @@ export default {
             max: 50,
             animate: true,
             statusNew: this.status,
-            progress: JSON.parse(this.initial)
+            progress: JSON.parse(this.initial) // this method remove the quote around the variable
         }
     },
     props: ['status', 'initial', 'order_id'],
