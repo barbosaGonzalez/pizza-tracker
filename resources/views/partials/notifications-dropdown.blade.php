@@ -1,6 +1,6 @@
-{{--  <order-notifications user_id="{{ auth()->user()->id }}"></order-notifications>  --}}
+<order-notification user_id="{{ auth()->user()->id }}"></order-notification>
 
-<li class="nav-item dropdown">
+{{--  <li class="nav-item dropdown">
     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false" v-pre>
         <i class="fa fa-bell"></i>
@@ -23,6 +23,6 @@
             <strong>See all notifications </strong> 
         </a>
     </div>
-</li>
+</li>  --}}
 
 

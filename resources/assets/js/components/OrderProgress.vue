@@ -31,7 +31,7 @@ export default {
     props: ['status', 'initial', 'order_id'],
 
     mounted() {
-        Echo.channel('pizza-tracker.' + this.order_id)
+        Echo.private('pizza-tracker.' + this.order_id)
             .listen('OrderStatusChanged', (pizzaOrder) => {
                 this.statusNew = pizzaOrder.status_name
                 this.progress = pizzaOrder.status_percent

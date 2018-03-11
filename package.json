@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.0.0-rc.2",
-        "vue-strap": "^1.1.40"
+        "vue-strap": "^1.1.40",
+        "vue-timeago": "^3.4.4"
     }
 }

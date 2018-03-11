@@ -35,7 +35,10 @@ class OrderStatusChanged implements ShouldBroadcast
     public function broadcastOn()
     {
         // return new Channel('pizza-tracker.'.$this->order->id); // Single channel
-        return ['pizza-tracker.'.$this->order->id, 'pizza-tracker']; // Multiple channel
+        // return new PrivateChannel('pizza-tracker.'.$this->order->id); // Single private channel
+        // return ['pizza-tracker.'.$this->order->id, 'pizza-tracker']; // Multiple channel
+        return ['private-pizza-tracker.'.$this->order->id, 'pizza-tracker']; // Multiple private channel, using private channel, just prepend "private-" to channel name
+        // and then go to OrderProgress.vue, change to Echo.private('pizza-tracker.' + this....)
     }
 
     public function broadcastWith()
