@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Status;
 use Illuminate\Http\Request;
+use App\Events\OrderStatusChanged;
 
 class AdminOrdersController extends Controller
 {
     public function index()
     {
+
+   
+// $order->id->toJson();
         $orders = Order::with(['customer', 'status'])->get();
         return view('admin.index', compact('orders'));
     }

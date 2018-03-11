@@ -11,8 +11,15 @@
 |
 */
 
+use App\Events\OrderStatusChanged;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/fire', function () {
+    event(new OrderStatusChanged);
+    return 'Fired';
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

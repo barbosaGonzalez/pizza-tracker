@@ -1,50 +1,28 @@
-<order-notifications user_id="{{ auth()->user()->id }}"></order-notifications>
+{{--  <order-notifications user_id="{{ auth()->user()->id }}"></order-notifications>  --}}
 
-{{-- <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" v-pre>
         <i class="fa fa-bell"></i>
-        <span class="notification-count label label-danger">8</span>
+        <span class="notification-count">8</span>
         <span class="caret"></span>
     </a>
 
-    <ul class="dropdown-menu dropdown-menu-notifications" role="menu">
-        <li>
-            <a href="#">
-                <div>
-                    <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
-                    <span class="pull-right text-muted small">4 mins ago</span>
-                </div>
-            </a>
-            <div class="divider"></div>
-        </li>
-        <li>
-            <a href="#">
-                <div>
-                    <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
-                    <span class="pull-right text-muted small">4 mins ago</span>
-                </div>
-            </a>
-            <div class="divider"></div>
-        </li>
-
-        <li>
-            <a href="#">
-                <div>
-                    <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
-                    <span class="pull-right text-muted small">4 mins ago</span>
-                </div>
-            </a>
-            <div class="divider"></div>
-        </li>
-        <li>
-            <div class="text-center see-all-notifications">
-                <a href="notifications.html">
-                    <strong>See All Alerts</strong>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-        </li>
-
-    </ul>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item py-3" href="">
+            <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
+        </a>
+        <a class="dropdown-item py-3" href="">
+            <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
+        </a>
+        <a class="dropdown-item py-3" href="">
+            <i class="fa fa-exclamation-circle fa-fw"></i> You have 16 messages
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item text-center" href="">
+            <strong>See all notifications </strong> 
+        </a>
+    </div>
 </li>
- --}}
+
+
