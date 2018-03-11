@@ -15,6 +15,8 @@ class OrderStatusChanged implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    // Generate this using php artisan event:generate, two file will be created
+
     public $order;
 
     /**
