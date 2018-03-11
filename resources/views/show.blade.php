@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+                <order-alert user_id="{{ auth()->user()->id }}"></order-alert>  
             <div class="card">
                 <div class="card-header">Order Tracker</div>
 
@@ -17,9 +18,8 @@
                     @endif
 
                     <order-progress status="{{ $order->status->name }}" initial="{{ $order->status->percent }}" order_id="{{ $order->id }}"></order-progress>
-                    {{--  <order-progress status="{{ $order->status->name}}" initial=" {{ $order->status->percent }}" order_id="{{ $order->id }}"></order-progress>
-
-                    <order-alert user_id="{{ auth()->user()->id }}"></order-alert>  --}}
+                    
+                               
 
                     <hr>
                     {{ $order->status->percent }}

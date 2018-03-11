@@ -13809,7 +13809,7 @@ window.Vue = __webpack_require__(38);
  */
 
 Vue.component('order-progress', __webpack_require__(41));
-Vue.component('order-notification', __webpack_require__(272));
+Vue.component('order-alert', __webpack_require__(275));
 
 var app = new Vue({
     el: '#app',
@@ -52210,9 +52210,9 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_bootstrap_vue__["a" /* default */]);
     mounted: function mounted() {
         var _this = this;
 
-        Echo.channel('pizza-tracker.' + this.order_id).listen('OrderStatusChanged', function (order) {
-            _this.statusNew = order.status_name;
-            _this.progress = order.status_percent;
+        Echo.channel('pizza-tracker.' + this.order_id).listen('OrderStatusChanged', function (pizzaOrder) {
+            _this.statusNew = pizzaOrder.status_name;
+            _this.progress = pizzaOrder.status_percent;
         });
     }
 });
@@ -69826,15 +69826,18 @@ function removeBVPO(el) {
 });
 
 /***/ }),
-/* 272 */
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(42)
 /* script */
-var __vue_script__ = __webpack_require__(273)
+var __vue_script__ = __webpack_require__(276)
 /* template */
-var __vue_template__ = __webpack_require__(274)
+var __vue_template__ = __webpack_require__(277)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69851,7 +69854,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/OrderNotification.vue"
+Component.options.__file = "resources/assets/js/components/OrderAlert.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -69860,9 +69863,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2f0c79b2", Component.options)
+    hotAPI.createRecord("data-v-ad688db6", Component.options)
   } else {
-    hotAPI.reload("data-v-2f0c79b2", Component.options)
+    hotAPI.reload("data-v-ad688db6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -69873,12 +69876,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 273 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bootstrap_vue__ = __webpack_require__(122);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -69903,56 +69912,98 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_bootstrap_vue__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            dismissSecs: 10,
+            dismissCountDown: 0,
+            showDismissibleAlert: false,
+            order_id: ''
+        };
     },
 
-    props: ['order_id'],
+    props: ['user_id'],
+
+    methods: {
+        countDownChanged: function countDownChanged(dismissCountDown) {
+            this.dismissCountDown = dismissCountDown;
+        },
+        showAlert: function showAlert() {
+            this.dismissCountDown = this.dismissSecs;
+        }
+    },
 
     mounted: function mounted() {
-        Echo.channel('pizza-tracker.' + this.order_id).listen('OrderStatusChanged', function (order) {});
+        var _this = this;
+
+        Echo.channel('pizza-tracker').listen('OrderStatusChanged', function (pizzaOrder) {
+            if (_this.user_id == pizzaOrder.user_id) {
+                _this.showAlert();
+                _this.order_id = pizzaOrder.id;
+            }
+        });
     }
 });
 
 /***/ }),
-/* 274 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c(
+        "b-alert",
+        {
+          attrs: {
+            show: _vm.dismissCountDown,
+            dismissible: "",
+            variant: "success"
+          },
+          on: {
+            dismissed: function($event) {
+              _vm.dismissCountDown = 0
+            },
+            "dismiss-count-down": _vm.countDownChanged
+          }
+        },
+        [
+          _c("p", [
+            _vm._v("Order ID:#" + _vm._s(_vm.order_id) + " Status Updated!")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "I will dissmiss in " +
+                _vm._s(_vm.dismissCountDown) +
+                " seconds..."
+            )
+          ]),
+          _vm._v(" "),
+          _c("b-progress", {
+            attrs: {
+              variant: "success",
+              max: _vm.dismissSecs,
+              value: _vm.dismissCountDown,
+              height: "4px"
+            }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Order Notification Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2f0c79b2", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-ad688db6", module.exports)
   }
 }
 

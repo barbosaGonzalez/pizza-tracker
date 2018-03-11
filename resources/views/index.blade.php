@@ -3,6 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        <order-alert user_id="{{ auth()->user()->id }}"></order-alert>             
             <div class="card">
                 <div class="card-header">My Orders</div>
 
@@ -16,8 +17,6 @@
                     <a class="btn btn-success" href="{{ route('user.orders.create') }}">Order Pizza</a>
 
                     @else
-
-                    <order-alert user_id="{{ auth()->user()->id }}"></order-alert>
 
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
