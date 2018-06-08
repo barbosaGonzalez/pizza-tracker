@@ -1,3 +1,63 @@
+// Color
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+$grays: map-merge((
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+), $grays);
+
+$blue:    #1e87f0 !default;
+$indigo:  #6610f2 !default;
+$purple:  hsl(271, 100%, 71%) !default;
+$pink:    #e83e8c !default;
+$red:     #f0506e !default;
+$orange:  #fd7e14 !default;
+$yellow:  hsl(48, 100%, 67%) !default;
+$green:   #32d296 !default;
+$teal:    #20c997 !default;
+$cyan:    hsl(204, 86%, 53%) !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+), $theme-colors);
+
+// Component
+$component-active-bg: $primary !default;
 
 // Body
 $body-bg: #f5f8fa;
@@ -10,4 +70,8 @@ $border-radius: 1px !default;
 $border-radius-lg:  1px !default;
 $border-radius-sm: 1px !default;
 
+// Button
 $input-btn-focus-width: 0 !default;
+
+// Input
+$input-focus-border-color: $component-active-bg !default;

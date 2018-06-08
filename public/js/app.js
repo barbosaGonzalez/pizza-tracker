@@ -20388,7 +20388,7 @@ module.exports = isObject;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(86);
-module.exports = __webpack_require__(276);
+module.exports = __webpack_require__(278);
 
 
 /***/ }),
@@ -58697,7 +58697,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_bootstrap_vue__["a" /* default */]);
             max: 50,
             animate: true,
             statusNew: this.status,
-            progress: JSON.parse(this.initial)
+            progress: JSON.parse(this.initial) // this method remove the quote around the variable
         };
     },
 
@@ -70007,7 +70007,7 @@ var normalizeComponent = __webpack_require__(26)
 /* script */
 var __vue_script__ = __webpack_require__(274)
 /* template */
-var __vue_template__ = __webpack_require__(275)
+var __vue_template__ = __webpack_require__(277)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -70051,7 +70051,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_timeago__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_timeago__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_timeago___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_timeago__);
 //
 //
@@ -70090,7 +70090,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_timeago___default.a, {
     locale: 'en-US',
     locales: {
         // you will need json-loader in webpack 1
-        'en-US': __webpack_require__(279)
+        'en-US': __webpack_require__(276)
     }
 });
 
@@ -70120,109 +70120,6 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_timeago___default.a, {
 
 /***/ }),
 /* 275 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("li", { staticClass: "nav-item dropdown" }, [
-    _c(
-      "a",
-      {
-        staticClass: "nav-link dropdown-toggle",
-        attrs: {
-          id: "navbarDropdown",
-          href: "#",
-          role: "button",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "false"
-        }
-      },
-      [
-        _c("i", { staticClass: "fa fa-bell" }),
-        _vm._v(" "),
-        _vm.notifications.length > 0
-          ? _c("span", {}, [_vm._v(_vm._s(_vm.notifications.length))])
-          : _vm._e(),
-        _vm._v(" "),
-        _c("span", { staticClass: "caret" })
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "dropdown-menu",
-        attrs: { "aria-labelledby": "navbarDropdown" }
-      },
-      [
-        _vm._l(_vm.notifications, function(notification) {
-          return _c("li", [
-            _c(
-              "a",
-              {
-                staticClass: "dropdown-item py-3",
-                attrs: { href: notification.url }
-              },
-              [
-                _c("i", { staticClass: "fa fa-exclamation-circle fa-fw" }),
-                _vm._v(
-                  " " + _vm._s(notification.description) + "\n                "
-                ),
-                _c(
-                  "span",
-                  { staticClass: "pull-right" },
-                  [
-                    _c("timeago", {
-                      attrs: { since: notification.time, "auto-update": 5 }
-                    })
-                  ],
-                  1
-                )
-              ]
-            )
-          ])
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown-divider" }),
-        _vm._v(" "),
-        _vm.notifications.length > 0
-          ? _c(
-              "a",
-              { staticClass: "dropdown-item text-center", attrs: { href: "" } },
-              [_c("strong", [_vm._v("Show all notifications")])]
-            )
-          : _c(
-              "a",
-              { staticClass: "dropdown-item text-center", attrs: { href: "" } },
-              [_c("strong", [_vm._v("Show all notifications")])]
-            )
-      ],
-      2
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2f0c79b2", module.exports)
-  }
-}
-
-/***/ }),
-/* 276 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 277 */,
-/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -70397,10 +70294,112 @@ return install;
 
 
 /***/ }),
-/* 279 */
+/* 276 */
 /***/ (function(module, exports) {
 
 module.exports = ["just now",["%s second ago","%s seconds ago"],["%s minute ago","%s minutes ago"],["%s hour ago","%s hours ago"],["%s day ago","%s days ago"],["%s week ago","%s weeks ago"],["%s month ago","%s months ago"],["%s year ago","%s years ago"]]
+
+/***/ }),
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("li", { staticClass: "nav-item dropdown" }, [
+    _c(
+      "a",
+      {
+        staticClass: "nav-link dropdown-toggle",
+        attrs: {
+          id: "navbarDropdown",
+          href: "#",
+          role: "button",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("i", { staticClass: "fa fa-bell" }),
+        _vm._v(" "),
+        _vm.notifications.length > 0
+          ? _c("span", {}, [_vm._v(_vm._s(_vm.notifications.length))])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("span", { staticClass: "caret" })
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "dropdown-menu",
+        attrs: { "aria-labelledby": "navbarDropdown" }
+      },
+      [
+        _vm._l(_vm.notifications, function(notification) {
+          return _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-item py-3",
+                attrs: { href: notification.url }
+              },
+              [
+                _c("i", { staticClass: "fa fa-exclamation-circle fa-fw" }),
+                _vm._v(
+                  " " + _vm._s(notification.description) + "\n                "
+                ),
+                _c(
+                  "span",
+                  { staticClass: "pull-right" },
+                  [
+                    _c("timeago", {
+                      attrs: { since: notification.time, "auto-update": 5 }
+                    })
+                  ],
+                  1
+                )
+              ]
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown-divider" }),
+        _vm._v(" "),
+        _vm.notifications.length > 0
+          ? _c(
+              "a",
+              { staticClass: "dropdown-item text-center", attrs: { href: "" } },
+              [_c("strong", [_vm._v("Show all notifications")])]
+            )
+          : _c(
+              "a",
+              { staticClass: "dropdown-item text-center", attrs: { href: "" } },
+              [_c("strong", [_vm._v("Show all notifications")])]
+            )
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2f0c79b2", module.exports)
+  }
+}
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
